@@ -19,6 +19,23 @@
 .card h3,.theory-card h3,.supplier h3,.evidence-card b,.scorecard h3,.result-box h3,.page h2,.page h3,.choice strong,.bill h3,.mine-overlay b,.sat-card b,.trace-card h3{color:#f4fbff!important}.supplier p,.evidence-card span,.supplier .tag,.choice span,.choice small,.result-box p,.scorecard p{color:#d9e6f2!important}.supplier.selected h3,.choice.selected strong{color:#fff6db!important}.supplier.selected p,.choice.selected span{color:#f3e7bf!important}</style>
 </head>
 <body>
+<a id="sn-hub-return" href="https://aug79-droid.github.io/sustainability-navigator/?lang=es#applications" aria-label="Volver al Sustainability Hub">← Volver al Sustainability Hub</a>
+<style>
+#sn-hub-return{position:fixed;z-index:2147483646;top:12px;left:12px;padding:10px 14px;border:2px solid rgba(255,255,255,.75);border-radius:999px;background:#071b33;color:#fff!important;font:800 13px/1.2 system-ui,sans-serif;text-decoration:none;box-shadow:0 5px 18px rgba(0,0,0,.3)}
+#sn-hub-return:focus-visible{outline:3px solid #63d4e7;outline-offset:3px}
+@media(max-width:600px){#sn-hub-return{top:8px;left:8px;padding:8px 11px;font-size:11px}}
+</style>
+<script>
+(function(){
+  const lang=new URLSearchParams(location.search).get("hubLang")==="en"?"en":"es";
+  const a=document.getElementById("sn-hub-return");
+  if(lang==="en"&&a){
+    a.href="https://aug79-droid.github.io/sustainability-navigator/?lang=en#applications";
+    a.textContent="← Back to Sustainability Hub";
+    a.setAttribute("aria-label","Back to Sustainability Hub");
+  }
+})();
+</script>
 <div class="shell">
 <header class="topbar"><div class="brand"><div class="mark">MF</div><div>THE MINERAL FOOTPRINT<small>Retrofit Challenge · Engineering / Design</small></div></div><div class="nav"><button class="btn" id="backBtn">← Back</button><button class="btn" data-go="home">Home</button><button class="btn" data-go="how">How to Play</button><button class="btn" data-go="knowledge">Knowledge Base</button></div></header>
 <main>
@@ -55,4 +72,4 @@ const avatarWrap=document.getElementById('avatarWrap'),avatarMsg=document.getEle
 function chooseMaleVoice(){const voices=speechSynthesis.getVoices();const preferred=['Microsoft George','Microsoft Ryan','Microsoft David','Microsoft Mark','Google UK English Male','Daniel','Oliver','Alex'];for(const n of preferred){const v=voices.find(x=>x.name.toLowerCase().includes(n.toLowerCase()));if(v)return v}return voices.find(v=>/^en[-_]/i.test(v.lang)&&/male|man|david|george|daniel|ryan|mark|alex|oliver/i.test(v.name))||voices.find(v=>/^en[-_]/i.test(v.lang))||voices[0]}
 document.getElementById('speakBtn').onclick=()=>{if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(currentTip);u.lang='en-GB';u.rate=.93;u.pitch=.82;const v=chooseMaleVoice();if(v)u.voice=v;u.onstart=()=>avatarImg.classList.add('speaking');u.onend=()=>avatarImg.classList.remove('speaking');u.onerror=()=>avatarImg.classList.remove('speaking');speechSynthesis.speak(u)};if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=()=>{};refresh();
 </script>
-<script src="translations-es-01.js"></script><script src="translations-es-02.js"></script><script src="translations-es-03.js"></script><script src="localization.js"></script></body></html>
+<script src="translations-es-01.js"></script><script src="translations-es-02.js"></script><script src="translations-es-03.js"></script><script src="translations-es-04.js"></script><script src="localization.js"></script></body></html>
