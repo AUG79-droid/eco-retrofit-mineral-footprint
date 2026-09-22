@@ -1,7 +1,7 @@
 (function(){
 "use strict";
 const p=new URLSearchParams(location.search),req=p.get("hubLang")||p.get("lang"),lang=req==="en"?"en":"es";document.documentElement.lang=lang;
-const exact=new Map(window.MF_ES||[]);
+const exact=new Map([...(window.MF_ES_1||[]),...(window.MF_ES_2||[]),...(window.MF_ES_3||[])]);
 const partial=[["Back to Sustainability Hub","Volver al Sustainability Hub"],["Stage ","Etapa "],["Learning checkpoint ","Punto de aprendizaje "],["How to Play","Cómo jugar"],["Knowledge Base","Base de conocimiento"],["Score","Puntuación"],["Continue","Continuar"],["Evaluate","Evaluar"],["Back","Volver"],["Open source","Abrir fuente"]];
 function tr(v){if(lang!=="es"||!v)return v;const t=v.trim();if(exact.has(t))return v.replace(t,exact.get(t));let o=v;for(const [a,b]of partial)o=o.split(a).join(b);return o}
 function walk(root){if(lang!=="es"||!root)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode())ns.push(w.currentNode);for(const n of ns){if(!n.parentElement||/^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA)$/i.test(n.parentElement.tagName))continue;const x=tr(n.nodeValue);if(x!==n.nodeValue)n.nodeValue=x}root.querySelectorAll?.("[title],[aria-label],[alt],[placeholder],[data-guide]").forEach(el=>{for(const a of["title","aria-label","alt","placeholder","data-guide"])if(el.hasAttribute(a))el.setAttribute(a,tr(el.getAttribute(a)))})}
