@@ -22,7 +22,7 @@ const partial=[
   ["Continue","Continuar"],
   ["Evaluate","Evaluar"],
   ["Back","Volver"],
-  ["Open source","Abrir fuente"]
+  ["Open source","Abrir fuente"],["A400M cockpit context · Wikimedia Commons / UK MOD imagery","Contexto de cabina A400M · Wikimedia Commons / imágenes del UK MOD"]
 ];
 
 function tr(v){
